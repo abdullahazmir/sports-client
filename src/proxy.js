@@ -11,9 +11,7 @@ export async function proxy(request) {
     if(!session) {
          return NextResponse.redirect(new URL('/login', request.url))
     }
-
 }
- 
 export const config = {
   matcher: ['/my-bookings', '/add-destination', '/destinations/:path'],
 }
