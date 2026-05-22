@@ -1,5 +1,7 @@
 import Banner from "@/components/Banner";
 import Featured from "@/components/Featured";
+import SportsPromo from "@/components/SportsPromo";
+import SportsStats from "@/components/SportsStats";
 import Image from "next/image";
 
 export default function Home() {
@@ -7,6 +9,8 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
      <Banner></Banner>
      <Featured/>
+     <SportsPromo/>
+     <SportsStats></SportsStats>
     </div>
   );
 }
