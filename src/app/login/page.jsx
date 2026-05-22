@@ -47,7 +47,7 @@ const LoginPage = () => {
     <div className="max-w-7xl mx-auto">
       <div className="text-center my-3">
         <h1 className="text-2xl font-bold">Login</h1>
-        <p>Start your adventure with Wanderlust</p>
+        <p>Start your adventure with SportNest</p>
       </div>
       <Card className="border rounded-none">
         <Form onSubmit={onSubmit} className="flex w-96 flex-col gap-4">

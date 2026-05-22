@@ -12,7 +12,7 @@ import {
   Card,
   Toast,
 } from "@heroui/react";
-import { redirect } from "next/dist/server/api-utils";
+
 import { useRouter } from "next/navigation";
 
 import toast from "react-hot-toast";
