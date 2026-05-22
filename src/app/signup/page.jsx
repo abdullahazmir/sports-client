@@ -1,6 +1,9 @@
 "use client";
 import { FcGoogle } from "react-icons/fc";
 import { Card, Separator } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 import {
   Button,
@@ -11,8 +14,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import { authClient } from "@/lib/auth-client";
-import { redirect } from "next/navigation";
+// const router = useRouter();
 
 const SignUpPage = () => {
   const onSubmit = async (e) => {
@@ -20,6 +22,7 @@ const SignUpPage = () => {
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
+    console.log(user);
 
     const { data, error } = await authClient.signUp.email({
       email: user.email,
@@ -49,7 +52,7 @@ const SignUpPage = () => {
     <div className="max-w-7xl mx-auto">
       <div className="text-center my-3">
         <h1 className="text-2xl font-bold">Create Account</h1>
-        <p>Start your adventure with Wanderlust</p>
+        <p>Start your adventure with SportNest</p>
       </div>
       <Card className="border rounded-none">
         <Form onSubmit={onSubmit} className="flex w-96 flex-col gap-4">
@@ -113,11 +116,11 @@ const SignUpPage = () => {
         </Form>
         <div className="flex justify-center items-center gap-3">
             <Separator/>
-           <div className="whitespace-nowrap"> Or sign up with </div>
+           <div className="whitespace-nowrap"> Or </div>
               <Separator/>
             </div>
         <div>
-            <Button onClick={handleGoogleSignin} variant="outline" className={'w-full rounded-none'}><FcGoogle /> Sign in with Google</Button>
+            <Button onClick={handleGoogleSignin} variant="outline" className={'w-full rounded-none'}><FcGoogle /> Sign Up with Google</Button>
         </div>
       </Card>
     </div>

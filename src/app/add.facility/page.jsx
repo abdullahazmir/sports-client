@@ -10,9 +10,15 @@ import {
   TextArea,
   Button,
   Card,
+  Toast,
 } from "@heroui/react";
+import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/navigation";
+
+import toast from "react-hot-toast";
 
 const AddFacilitiesPage = () => {
+  const router = useRouter();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +39,10 @@ const AddFacilitiesPage = () => {
         body: JSON.stringify(facility),
       }
     );
+  
+    toast.success("Facility added successfully!");
+    router.push("/facilities");
+    
 
     const data = await res.json();
 

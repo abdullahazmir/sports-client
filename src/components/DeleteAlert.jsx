@@ -5,7 +5,7 @@ import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
 
 export function DeleteAlert({ facility }) {
-   const {  image, facilityName, facilityType, location, pricePerHour, capacity, availableTimeSlots,description } = facility;
+   const { _id, image, facilityName, facilityType, location, pricePerHour, capacity, availableTimeSlots,description } = facility;
 
   const handleDelete = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facility/${_id}`, {
@@ -13,11 +13,11 @@ export function DeleteAlert({ facility }) {
       headers: {
         "content-type": "application/json",
       },
-      credentials: "include"
+      // credentials: "include"
     });
 
     const data = await res.json();
-    redirect('/destinations')
+    redirect('/facilities')
     console.log(data);
   };
   return (

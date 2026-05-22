@@ -16,7 +16,7 @@ import {
 import { BiEdit } from "react-icons/bi";
 
 export function EditModal({ facility }) {
-    const {  image, facilityName, facilityType, location, pricePerHour, capacity, availableTimeSlots,description } = facility;
+    const { _id, image, facilityName, facilityType, location, pricePerHour, capacity, availableTimeSlots,description } = facility;
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ export function EditModal({ facility }) {
         "content-type": "application/json",
       },
       body: JSON.stringify(facility),
-      credentials: "include"
+      // credentials: "include"
     });
 
     const data = await res.json();
