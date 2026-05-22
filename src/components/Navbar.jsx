@@ -1,45 +1,80 @@
-import Image from 'next/image';
-import React from 'react';
+"use client";
+
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Button } from "@heroui/react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
-    return (
-        <div className="navbar justify-between bg-base-100 shadow-sm">
-            <div className="flex justify-between">
-            <Image
-                src="/assets/logo.png"
-                alt="SportNest Logo"
-                width={100}
-                height={100}
-            />
-                <a className="btn btn-ghost text-xl">SportNest</a>
-            </div>
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
-            <div className="flex gap-2">
-                <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                        </div>
-                    </div>
-                    <ul
-                        tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    );
+  const handleSignOut = async () => {
+    await authClient.signOut();
+  };
+
+  return (
+  <div className="bg-white py-3">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto">
+      <ul className="flex gap-3">
+        <li>
+          <Link href={"/"}>Home</Link>
+        </li>
+        <li>
+          <Link href={"/facilities"}>Facilities</Link>
+        </li>
+        <li>
+          <Link href={"/my-bookings"}>My Bookings</Link>
+        </li>
+
+        <li>
+          <Link href={"/add-facility"}>Add Facility</Link>
+        </li>
+      </ul>
+
+      <div>
+        <Image
+          src={"/assets/logo.png"}
+          height={150}
+          width={150}
+          alt="logo"
+        />
+      </div>
+
+      <ul className="flex items-center gap-3">
+        <li>
+          <Link href={"/profile"}>Profile</Link>
+        </li>
+
+        {user ? (
+          <>
+            <li>
+              <Avatar>
+                <Avatar.Image referrerPolicy="no-referrer" alt="John Doe" src={user?.image} />
+                <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+              </Avatar>
+            </li>
+            <li>
+              <Button size="sm" onClick={handleSignOut} variant="danger" className={"rounded-none"}>
+                Logout
+              </Button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link href={"/login"}>Login</Link>
+            </li>
+            <li>
+              <Link href={"/signup"}>Sign Up</Link>
+            </li>
+          </>
+        )}
+      </ul>
+    </nav>
+  </div>
+  );
 };
 
 export default Navbar;
