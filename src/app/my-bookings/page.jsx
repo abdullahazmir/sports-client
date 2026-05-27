@@ -1,7 +1,7 @@
 
 import { BookingDeleteAlert } from "@/components/BookingDeleteAlert";
 import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
+
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";

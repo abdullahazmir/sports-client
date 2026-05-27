@@ -1,3 +1,7 @@
+import { betterAuth } from "better-auth";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
+import { client, db } from "@/lib/db";
+
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,

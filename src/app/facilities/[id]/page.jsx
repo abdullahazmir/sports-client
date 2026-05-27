@@ -14,11 +14,11 @@ const FacilityDetailsPage = async ({ params }) => {
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/facility/${id}`,
-    {
-        headers:{
-            authorization: `Bearer ${token}`
-        }
-    }
+    // {
+    //     headers:{
+    //         authorization: `Bearer ${token}`
+    //     }
+    // }
   );
 
   const facility = await res.json();
