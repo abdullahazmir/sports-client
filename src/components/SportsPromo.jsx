@@ -26,7 +26,7 @@ const SportsPromo = () => {
         {/* Image */}
         <div className="flex-1">
           <Image
-            src="/assets/sports-banner.jpg"
+            src="/assets/logo.png"
             alt="sports"
             width={500}
             height={300}
