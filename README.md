@@ -12,7 +12,7 @@ It is designed to simplify facility management and booking with a smooth and res
 ---
 
 ## 🚀 Live URL
-👉 https://your-live-site-url.com
+👉https://b13-a09-az.vercel.app
 
 ---
 
@@ -66,8 +66,3 @@ It is designed to simplify facility management and booking with a smooth and res
 
 ---
 
-## 📷 Screenshots (Optional)
-Add screenshots here:
-```md
-![Home Page](./screenshots/home.png)
-![Facilities](./screenshots/facilities.png)

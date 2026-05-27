@@ -2,8 +2,8 @@
 import { FcGoogle } from "react-icons/fc";
 import { Card, Separator } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
-import { redirect } from "next/navigation";
-// import { useRouter } from "next/navigation";
+// import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
   Button,
@@ -14,9 +14,9 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-// const router = useRouter();
 
 const SignUpPage = () => {
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -32,7 +32,7 @@ const SignUpPage = () => {
     });
 
     if (data) {
-      redirect("/");
+      router.push("/");
     }
 
     if (error) {
